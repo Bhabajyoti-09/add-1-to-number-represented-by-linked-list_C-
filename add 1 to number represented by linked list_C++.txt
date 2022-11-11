@@ -1,0 +1,15 @@
+class Solution
+{
+    public:
+    Node* addOne(Node *head) 
+    {
+        if(head->next==NULL){
+            head->data+=1;
+            return head;
+        }
+        Node*sum=addOne(head->next);
+        head->data+=(sum->data/10);
+        sum->data=sum->data%10;
+        return head;
+    }
+};
